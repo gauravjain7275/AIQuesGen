@@ -1,0 +1,65 @@
+
+<div class="create-test-container">
+  <h2>Create Online Test</h2>
+
+  <div class="form-grid">
+    <div class="form-col">
+      <label>Test Title</label>
+      <input [(ngModel)]="testTitle" />
+
+      <label>Upload PDF (Source Material)</label>
+      <input type="file" (change)="onFileSelected($event)" accept="application/pdf" />
+
+      <label>Number of Questions</label>
+      <input type="number" [(ngModel)]="questionCount" min="1" max="200" />
+
+      <label>Language</label>
+      <select [(ngModel)]="language">
+        <option>English</option>
+        <option>Hindi</option>
+      </select>
+
+      <label>Difficulty</label>
+      <select [(ngModel)]="difficulty">
+        <option>Easy</option>
+        <option selected>Medium</option>
+        <option>Hard</option>
+      </select>
+
+      <label>Duration (minutes, optional)</label>
+      <input type="number" [(ngModel)]="durationMinutes" min="1" />
+
+      <label>Passing Score (%) (optional)</label>
+      <input type="number" [(ngModel)]="passingScore" min="0" max="100" />
+
+      <label>Expiration Date (optional)</label>
+      <input type="date" [(ngModel)]="linkExpiryDate">
+
+      <label>Maximum Number of Students appear for this Test (optional)</label>
+      <input type="number" [(ngModel)]="maxAttemptsTotal" max="50"/>
+
+      <label>Maximum Number of Atttempts per Student (optional)</label>
+      <input type="number" [(ngModel)]="maxAttemptsPerStudent" max="3"/>
+
+      <button class="btn-primary" (click)="createTest()" [disabled]="loading">
+        {{ loading ? 'Creating...' : 'Generate Test' }}
+      </button>
+    </div>
+
+    <div class="form-col">
+      <div class="help-card">
+        <h4>How it works</h4>
+        <ul>
+          <li>Upload a PDF that contains the syllabus/source material.</li>
+          <li>Enter the number of MCQs you want.</li>
+          <li>After generating, preview and publish the test to get a shareable link.</li>
+        </ul>
+      </div>
+
+      <div *ngIf="previewLink" class="link-card">
+        <p>Preview / shareable link:</p>
+        <a [href]="previewLink" target="_blank">{{ previewLink }}</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="dashboard-container">
+  <h2 class="welcome-title">Welcome, {{ user?.userName }}</h2>
+  <h4 class="sub-title">You are logged in as: {{ user?.userType }}</h4>
+
+  <!-- INDIVIDUAL DASHBOARD -->
+  <div *ngIf="user?.userType === 'Individual'" class="card-grid">
+
+    <div class="dash-card">
+      <h3>Generate Questions</h3>
+      <p>Create AI-powered practice questions instantly.</p>
+      <button class="btn-primary" routerLink="/generate-questions">Start Generating</button>
+    </div>
+
+    <div class="dash-card">
+      <h3>Create Online Test</h3>
+      <p>Create an online MCQ test and share with students.</p>
+      <button class="btn-primary" routerLink="/create-test">Create Test</button>
+    </div>
+
+    <div class="dash-card">
+      <h3>My Tests</h3>
+      <p>Manage all tests you have created.</p>
+      <button class="btn-secondary" routerLink="/my-tests">Manage Tests</button>
+    </div>
+
+    <div class="dash-card">
+      <h3>My History</h3>
+      <p>View your previously generated questions.</p>
+      <button class="btn-secondary">View History</button>
+    </div>
+
+  </div>
+
+  <div *ngIf="user?.userType === 'Coaching'" class="card-grid">
+
+    <div class="dash-card">
+      <h3>Create Test</h3>
+      <p>Create AI-generated tests for your coaching institute.</p>
+      <button class="btn-primary" routerLink="/create-test">Create Test</button>
+    </div>
+
+    <div class="dash-card">
+      <h3>Manage Teachers</h3>
+      <p>Add, edit, or remove teachers under your coaching.</p>
+      <button class="btn-secondary" routerLink="/manage-teachers">Manage</button>
+    </div>
+
+    <div class="dash-card">
+      <h3>Test History</h3>
+      <p>View all tests created by your teachers.</p>
+      <button class="btn-secondary" routerLink="/test-history">View</button>
+    </div>
+
+    <div class="dash-card">
+      <h3>Institute Settings</h3>
+      <p>Subscription, plan details and profile settings.</p>
+      <button class="btn-secondary" routerLink="/settings">Open</button>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,44 @@
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.card {
+  background: #fff;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+}
+
+.btn-primary {
+  background: #1976d2;
+  color: white;
+}
+
+.btn-secondary {
+  background: #7b1fa2;
+  color: white;
+}
+
+.btn-light {
+  background: #eee;
+}
+
+.btn-danger {
+  background: #d32f2f;
+  color: white;
+}
+
+button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}

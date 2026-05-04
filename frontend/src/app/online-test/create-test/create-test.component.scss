@@ -1,0 +1,8 @@
+.create-test-container{ padding:20px; max-width:1000px; margin:30px auto; font-family:Segoe UI;}
+.form-grid{ display:flex; gap:20px;}
+.form-col{ flex:1; background:#fff; padding:18px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.06);}
+label{ display:block; margin-top:10px; font-weight:600; }
+input, select{ width:100%; padding:8px; border-radius:6px; border:1px solid #ccc; margin-top:6px;}
+.btn-primary{ margin-top:14px; background:#1976d2; color:white; padding:10px 14px; border:none; border-radius:6px;}
+.help-card{ background:#f6f8fb; padding:12px; border-radius:6px;}
+.link-card{ margin-top:12px; background:#e8f0ff; padding:10px; border-radius:6px;}

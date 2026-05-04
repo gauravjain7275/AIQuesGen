@@ -1,0 +1,40 @@
+<div class="preview-container">
+  <h2 class="preview-title">Test Preview (ID: {{ testId }})</h2>
+
+  <div *ngIf="loading" class="loading-text">Loading questions…</div>
+
+  <div *ngIf="!loading && questions.length">
+
+    <!-- Action Buttons -->
+    <div class="preview-actions">
+      <button class="btn-primary" (click)="getShareableLink()">Get Shareable Link</button>
+      <button class="btn-secondary" (click)="goToStudentView()">Open Student View</button>
+    </div>
+
+    <!-- Questions List -->
+    <div class="questions-list">
+      <div class="qcard" *ngFor="let q of questions; let i = index">
+        <div class="qtitle">Q{{ i + 1 }}. <span [innerHTML]="q.questionText"></span></div>
+
+        <div class="options">
+          <div>A. {{ q.optionA }}</div>
+          <div>B. {{ q.optionB }}</div>
+          <div>C. {{ q.optionC }}</div>
+          <div>D. {{ q.optionD }}</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share Link Box -->
+    <div *ngIf="testLink" class="link-block">
+      <p class="link-title">Shareable Link:</p>
+      <div class="link-box">
+        <input type="text" [value]="testLink" readonly />
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!loading && !questions.length" class="no-questions">
+    <p>No questions found for this test.</p>
+  </div>
+</div>

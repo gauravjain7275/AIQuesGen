@@ -1,0 +1,13 @@
+<nav class="nav">
+  <div class="brand" routerLink="/">AIQuesGen</div>
+
+  <div class="links" *ngIf="auth.isLoggedIn()">
+    <a routerLink="/dashboard">Dashboard</a>
+    <button (click)="logout()">Logout</button>
+  </div>
+
+  <div class="links" *ngIf="!auth.isLoggedIn()">
+    <a routerLink="/login">Login</a>
+    <a routerLink="/signup">Signup</a>
+  </div>
+</nav>

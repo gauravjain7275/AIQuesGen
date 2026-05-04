@@ -1,0 +1,20 @@
+<div class="container" *ngIf="!loading && test">
+
+  <h2>Test Details For {{testTitle}}</h2>
+
+  <div class="card">
+    <p><strong>Title:</strong> {{ test.testTitle }}</p>
+    <p><strong>Questions:</strong> {{ test.numberOfQuestions }}</p>
+    <p><strong>Created:</strong> {{ test.createdAt | date:'medium' }}</p>
+    <p><strong>Total Attempts:</strong> {{ test.totalAttempts }}</p>
+  </div>
+
+  <div class="actions">
+    <button class="btn-light" (click)="backClick()">Back</button>
+    <button class="btn-primary" (click)="openPreview()">Preview Test</button>
+    <button class="btn-secondary" (click)="openStudentView()">Open Student View</button>
+    <button class="btn-light" (click)="copyLink()">Copy Link</button>
+    <button class="btn-danger" >Delete Test</button>
+  </div>
+
+</div>

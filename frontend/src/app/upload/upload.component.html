@@ -1,0 +1,58 @@
+<div class="container">
+  <h2>AI Question Paper Generator</h2>
+
+  <div class="file-upload">
+    <input type="file" (change)="onFileSelect($event)" accept="application/pdf" />
+  </div>
+
+  <div class="controls">
+    <label>
+      Question Type:
+      <select [(ngModel)]="questionType">
+        <option value="mixed">Mixed</option>
+        <option value="mcq">MCQ</option>
+        <option value="short">Short Answer</option>
+        <option value="descriptive">Descriptive</option>
+      </select>
+    </label>
+
+    <label>
+      Difficulty:
+      <select [(ngModel)]="difficulty">
+        <option value="Easy">Easy</option>
+        <option value="Medium">Medium</option>
+        <option value="Hard">Hard</option>
+      </select>
+    </label>
+
+    <label>
+      Number of Questions:
+      <input type="number" [(ngModel)]="questionCount" min="1" max="100" />
+    </label>
+
+    <label>
+      Language:
+      <select [(ngModel)]="language">
+        <option value="Hindi">Hindi</option>
+        <option value="English">English</option>
+      </select>
+    </label>
+  </div>
+
+  <button class="btn-primary" (click)="upload()" [disabled]="!files.length || loading">Generate Questions</button>
+
+  <div *ngIf="loading" class="loading">Generating… please wait</div>
+
+  <div *ngIf="result?.length" class="results">
+    <h3>Generated Questions</h3>
+    <ul class="questions-list">
+      <li *ngFor="let q of result" [innerHTML]="q"></li>
+    </ul>
+
+    <div class="export-buttons">
+      <button class="btn-secondary" (click)="downloadTXT()">Export TXT</button>
+      <!-- <button class="btn-secondary" (click)="downloadPDF()">Export PDF</button>
+      <button class="btn-secondary" (click)="downloadDOCX()">Export Word</button> -->
+    </div>
+  </div>
+</div>

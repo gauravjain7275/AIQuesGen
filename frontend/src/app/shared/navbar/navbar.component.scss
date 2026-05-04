@@ -1,0 +1,40 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1976d2;
+  padding: 12px 20px;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.nav .brand {
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.links a {
+  color: white;
+  margin-right: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+.links button {
+  background: white;
+  color: #1976d2;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.links button:hover {
+  background: #e0e0e0;
+}

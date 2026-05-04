@@ -1,0 +1,42 @@
+.container {
+  max-width: 850px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.attempt-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.attempt-table th {
+  background: #1976d2;
+  color: white;
+  padding: 12px;
+}
+
+.attempt-table td {
+  padding: 12px;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+}
+
+.btn-light {
+  background: #eee;
+}
+
+button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}

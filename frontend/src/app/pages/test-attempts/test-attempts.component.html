@@ -1,0 +1,28 @@
+<div class="container">
+  <h2>Test Attempts For {{testTitle}}</h2>
+
+  <div *ngIf="loading">Loading...</div>
+
+  <table *ngIf="!loading" class="attempt-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Score (%)</th>
+        <th>Submitted</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of attempts">
+        <td>{{ a.participantName }}</td>
+        <td>{{ a.participantEmail || 'N/A' }}</td>
+        <td>{{ a.score }}</td>
+        <td>{{ a.submittedAt | date:'medium' }}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="actions">
+    <button class="btn-light" (click)="backClick()">Back</button>
+  </div>
+</div>

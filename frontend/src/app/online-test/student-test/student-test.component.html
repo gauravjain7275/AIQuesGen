@@ -1,0 +1,54 @@
+<div *ngIf="isPreviewMode" class="back-wrapper">
+  <button class="back-btn" (click)="goBack()">
+    ← Back to Test Preview
+  </button>
+</div>
+
+<div class="student-test-wrap">
+  <div class="header">
+    <h2 class="test-title">{{ testTitle }}</h2>
+    <div *ngIf="remainingSeconds !== null && !isPreviewMode" class="timer">
+      Time left: {{ remainingSeconds | timeFormat }}
+    </div>
+  </div>
+
+  <div *ngIf="result" class="result-box">
+    <h2>Test Result</h2>
+    <p><strong>Correct:</strong> {{ result.correct }}</p>
+    <p><strong>Wrong:</strong> {{ result.wrong }}</p>
+    <p><strong>Total:</strong> {{ result.total }}</p>
+    <p><strong>Percentage:</strong> {{ result.percentage }}%</p>
+  </div>
+
+
+
+  <div>
+    <div class="info">
+      <label>Your Name</label>
+      <input [(ngModel)]="participantName" placeholder="Enter name" />
+      <label>Email (optional)</label>
+      <input [(ngModel)]="participantEmail" />
+    </div>
+
+    <div *ngIf="!result" class="questions">
+      <div class="qcard" *ngFor="let q of questions; let i = index">
+        <div class="qtitle">Q{{ i + 1 }}. <span [innerHTML]="q.questionText"></span></div>
+        <div class="opts">
+          <label><input type="radio" name="q{{q.questionId}}" (click)="selectAnswer(q.questionId,'A')" /> A. {{
+            q.optionA }}</label>
+          <label><input type="radio" name="q{{q.questionId}}" (click)="selectAnswer(q.questionId,'B')" /> B. {{
+            q.optionB }}</label>
+          <label><input type="radio" name="q{{q.questionId}}" (click)="selectAnswer(q.questionId,'C')" /> C. {{
+            q.optionC }}</label>
+          <label><input type="radio" name="q{{q.questionId}}" (click)="selectAnswer(q.questionId,'D')" /> D. {{
+            q.optionD }}</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="submit-area">
+      <button *ngIf="submitTestVisible && !isPreviewMode" class="btn-primary" (click)="submit()">Submit Test</button>
+      <button *ngIf="startTestVisible" class="btn-primary" (click)="startTest()">Start Test</button>
+    </div>
+  </div>
+</div>

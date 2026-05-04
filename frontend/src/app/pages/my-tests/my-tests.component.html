@@ -1,0 +1,37 @@
+<div class="page">
+  <h2>My Tests</h2>
+
+  <!-- FILTERS -->
+  <div class="filters">
+    <input type="date" [(ngModel)]="fromDate">
+    <input type="date" [(ngModel)]="toDate">
+
+    <button class="btn-secondary" (click)="applyFilters()">Apply</button>
+    <button class="btn-light" (click)="loadTests()">Clear</button>
+  </div>
+
+  <!-- TEST LIST -->
+  <table class="test-table" *ngIf="tests.length">
+    <tr>
+      <th>Title</th>
+      <th>Created</th>
+      <th>Total Qs</th>
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor="let t of tests">
+      <td>{{ t.testTitle }}</td>
+      <td>{{ t.createdAt | date:'short' }}</td>
+      <td>{{ t.numberOfQuestions }}</td>
+      <td>
+        <button class="btn-small" (click)="viewDetails(t.testId, t.testTitle)">View</button>
+        <button class="btn-small" (click)="viewAttempts(t.testId, t.testTitle)">Attempts</button>
+        <button class="btn-small" (click)="editTest(t.testId)">Edit</button>
+        <button class="btn-small btn-danger">Delete</button>
+      </td>
+    </tr>
+  </table>
+
+  <div *ngIf="!tests.length">
+    No tests found.
+  </div>
+</div>
