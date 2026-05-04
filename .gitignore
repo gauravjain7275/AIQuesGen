@@ -1,0 +1,10 @@
+# Backend (.NET)
+appsettings.Development.json
+bin/
+obj/
+*.user
+.vs/
+
+# Frontend (Angular)
+node_modules/
+dist/
